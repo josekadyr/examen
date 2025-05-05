@@ -1,0 +1,88 @@
+/* ==========================
+   Fuentes & variables color
+   ========================== */
+   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@300;400;500&display=swap");
+
+   :root{
+     --color-primario: #00695c;   /* teal oscuro */
+     --color-secundario: #f1f8e9; /* crema verdoso claro */
+     --color-acento: #ff8f00;     /* naranja */
+     --color-text: #424242;
+   }
+   
+   *,*::before,*::after{ box-sizing:border-box; }
+   
+   body{
+     font-family:"Poppins","Segoe UI",sans-serif;
+     color:var(--color-text);
+     line-height:1.6;
+     background:var(--color-secundario);
+   }
+   
+   /* ===== Navegación ===== */
+   .navbar{
+     background:linear-gradient(90deg,var(--color-primario) 0%,#004d40 100%);
+   }
+   .navbar-brand{ font-family:"Montserrat",sans-serif; }
+   
+   /* ===== Hero ===== */
+   .hero{
+     height:100vh;
+     padding-top:4.5rem;                 /* compensa navbar fija */
+     background:
+       linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+       url("../img/carrusel1.jpg") center/cover no-repeat;
+     color:#fff;
+   }
+   .hero h1{ font-family:"Montserrat",sans-serif; }
+   .hero .btn{
+     background:var(--color-acento);
+     border:none;
+   }
+   .hero .btn:hover{ background:#ffab40; }
+   
+   /* ===== Botón ir arriba ===== */
+   #btnTop{
+     position:fixed; bottom:1.5rem; right:1.5rem;
+     display:none; width:48px; height:48px;
+     align-items:center; justify-content:center;
+     background:var(--color-primario); color:#fff; border:none;
+   }
+   #btnTop.show{ display:flex; }
+   #btnTop:hover{ background:#004d40; }
+   
+   /* ===== Tarjetas de producto & animación ===== */
+   .producto img{ transition:transform .4s, filter .4s; }
+   .producto:hover img{
+     transform:scale(1.05);
+     filter:brightness(1.1);
+   }
+   .card{
+     border-radius:1rem;
+   }
+   .btn-outline-primary{
+     --bs-btn-color:var(--color-primario);
+     --bs-btn-border-color:var(--color-primario);
+     --bs-btn-hover-bg:var(--color-primario);
+     --bs-btn-hover-border-color:var(--color-primario);
+     --bs-btn-hover-color:#fff;
+   }
+   
+   /* ===== Secciones ===== */
+   section{ scroll-margin-top:4.5rem; }
+   .bg-light{ background:#ffffff !important; }
+   
+   /* ===== Footer ===== */
+   footer{
+     background:#263238;
+   }
+   footer a{ color:#eceff1 !important; }
+   footer a:hover{ color:var(--color-acento) !important; }
+   
+   /* ===== Mapa ===== */
+   .mapa-container .ratio{
+     border:4px solid var(--color-primario);
+     border-radius:1rem;
+     box-shadow:0 4px 12px rgba(0,0,0,.15);
+   }
+   

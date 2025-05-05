@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Mueblería Robles</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/estilos.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Nav compartida -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Mueblería Robles</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Filtro simple -->
+  <header class="py-5 text-center bg-light" style="margin-top:4.5rem;">
+    <h1 class="fw-bold">Catálogo 2025</h1>
+    <p class="lead">Elige la categoría que prefieras</p>
+
+    <div class="btn-group">
+      <button class="btn btn-outline-primary active" data-filter="all">Todos</button>
+      <button class="btn btn-outline-primary" data-filter="sala">Sala</button>
+      <button class="btn btn-outline-primary" data-filter="comedor">Comedor</button>
+      <button class="btn btn-outline-primary" data-filter="dormitorio">Dormitorio</button>
+    </div>
+  </header>
+
+  <!-- Productos -->
+  <main class="container py-5">
+    <div id="gridProductos" class="row g-4">
+      <!-- Tarjeta -->
+      <div class="col-sm-6 col-lg-3 producto" data-cat="sala">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="../img/prod1.png" class="card-img-top" alt="Sofá Oslo">
+          <div class="card-body">
+            <h6 class="card-title">Sofá Oslo</h6>
+            <p class="small text-muted">Lino gris • Bs 2 450</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 producto" data-cat="comedor">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="../img/prod2.png" class="card-img-top" alt="Mesa Nogal 6P">
+          <div class="card-body">
+            <h6 class="card-title">Mesa Nogal 6P</h6>
+            <p class="small text-muted">Maciza • Bs 3 900</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 producto" data-cat="dormitorio">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="../img/prod3.png" class="card-img-top" alt="Cama Arequipa">
+          <div class="card-body">
+            <h6 class="card-title">Cama Arequipa</h6>
+            <p class="small text-muted">Capitoné • Bs 4 200</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 producto" data-cat="sala">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="../img/prod4.png" class="card-img-top" alt="Butaca Verona">
+          <div class="card-body">
+            <h6 class="card-title">Butaca Verona</h6>
+            <p class="small text-muted">Colores varios • Bs 950</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- agrega más tarjetas según necesites -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <small>© 2025 Mueblería Robles | WhatsApp +591 700 00 000</small>
+  </footer>
+
+  <!-- Bootstrap + script de filtrado -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Filtro de categorías simple
+    const botones = document.querySelectorAll('[data-filter]');
+    const tarjetas = document.querySelectorAll('.producto');
+
+    botones.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // estado activo
+        botones.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const cat = btn.dataset.filter;
+        tarjetas.forEach(t => {
+          t.style.display = (cat === 'all' || t.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
